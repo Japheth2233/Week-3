@@ -12,19 +12,19 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();//The code that assigns our rigidbody.
+        rb = GetComponent<Rigidbody2D>(); //The code that assigns our rigidbody.
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y);
+        rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y);//Move the player.
     }
 
-    //FUNCTION - VOID . ACTION
+    //FUNCTION TO CONNECT OUR ACTIONS.
     public void Move(InputAction.CallbackContext context)
     {
-        movementInput = context.ReadValue<Vector2>();//this gets the input
+        movementInput = context.ReadValue<Vector2>(); //this gets the input
     }
 
 
