@@ -401,7 +401,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fa0f71b1aee57254a8dd54c904e8f596, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -550,6 +550,9 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 5
   isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!114 &175320552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1046,7 +1049,7 @@ GameObject:
   - component: {fileID: 277079178}
   - component: {fileID: 277079177}
   - component: {fileID: 277079176}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (1)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1689,7 +1692,7 @@ GameObject:
   - component: {fileID: 1399861486}
   - component: {fileID: 1399861485}
   - component: {fileID: 1399861484}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}

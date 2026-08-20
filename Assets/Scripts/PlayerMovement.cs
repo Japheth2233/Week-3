@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     //Only be able to jump if touching the ground.
 
     public bool isGrounded; //Am I touching the ground?
-
+    public LayerMask groundLayer; //What is the ground?
 
     void Start()
     {
@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, rb.linearVelocity.y); //Move the player - SIDE.
         FlipSprite();
+
+        Debug.DrawRay(transform.position, Vector2.down * 1, Color.blue); //Draws the line.
+        isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1, groundLayer); 
 
         //rb.linearVelocity = new Vector2(movementInput.x * moveSpeed, movementInput.y * moveSpeed); //Move the player - TOP DOWN.
     }
@@ -50,23 +53,6 @@ public class PlayerMovement : MonoBehaviour
             spriteRenderer.flipX = true;
         }
         //If it's just nothing, keep as is.
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision) //If two colliders are touching
-    {
-        if (collision.gameObject.CompareTag("Ground")) // and one of them is called ground 
-        {
-            isGrounded = true; // YES! We are grounded!
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-        }
     }
 
     //FUNCTION TO CONNECT OUR ACTIONS.
