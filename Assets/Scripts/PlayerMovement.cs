@@ -61,6 +61,21 @@ public class PlayerMovement : MonoBehaviour
         movementInput = context.ReadValue<Vector2>(); //this gets the input
     }
 
+    public bool playerInteracting; //Is my key being pressed?
+    public void Interact(InputAction.CallbackContext context)
+    {
+        if (context.started) //Is E pressed?
+        {
+            playerInteracting = true;
+        }
+        else if (context.canceled) //Have I let go?
+        {
+            playerInteracting = false;
+        }
+    }
+
+
+
     public void Jump(InputAction.CallbackContext context)
     {
         if (isGrounded == true) //ONLY IF WE ARE CURRENTLY TOUCHING THE GROUND, WE CAN JUMP
